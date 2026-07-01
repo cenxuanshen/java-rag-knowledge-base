@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 本地知识库问答系统</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>📚 本地知识库问答系统</h1>
+        <p>基于 RAG 技术，让 AI 基于你的文档回答</p>
+    </header>
+
+    <main>
+        <form action="/ask" method="post">
+            <input type="text" name="question" placeholder="输入你的问题..." required>
+            <button type="submit">提问</button>
+        </form>
+
+        <div class="result" th:if="${answer}">
+            <div class="question-box">
+                <strong>❓ 问题：</strong>
+                <span th:text="${question}"></span>
+            </div>
+            <div class="answer-box">
+                <strong>🤖 回答：</strong>
+                <span th:text="${answer}"></span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>📖 当前知识库：江泽民文选 | 共 821 个文本块</p>
+    </footer>
+</div>
+</body>
+</html>
